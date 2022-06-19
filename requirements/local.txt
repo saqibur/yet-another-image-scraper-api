@@ -1,2 +1,3 @@
 -r common.txt
 -r development.txt
+Faker==13.13.0

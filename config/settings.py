@@ -28,6 +28,7 @@ THIRD_PARTY_APPS = [
 SELF_APPS = [
     "apps.core",
     "apps.image",
+    "apps.seed",
     "apps.user",
 ]
 
@@ -63,6 +64,7 @@ REST_FRAMEWORK = {
         "rest_framework.parsers.FileUploadParser",
     ),
     "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework.filters.OrderingFilter",
         "rest_framework.filters.SearchFilter",
     ),
@@ -121,7 +123,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join("static", "static-root")
-STATICFILES_DIRS = [
-    os.path.join("static", ""),
-]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
