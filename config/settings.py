@@ -21,8 +21,9 @@ DEFAULT_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "rest_framework",
+    "django_apscheduler",
     "drf_yasg",
+    "rest_framework",
 ]
 
 SELF_APPS = [
