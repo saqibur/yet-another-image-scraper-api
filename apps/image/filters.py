@@ -5,7 +5,11 @@ from apps.image.models import ScrapedImage
 
 
 class ScrapedImageFilter(filters.FilterSet):
-    url = filters.CharFilter(field_name="scraped_from", label="url")
+    url = filters.CharFilter(
+        field_name="scraped_from",
+        lookup_expr="icontains",
+        label="url",
+    )
 
     class Meta:
         model = ScrapedImage

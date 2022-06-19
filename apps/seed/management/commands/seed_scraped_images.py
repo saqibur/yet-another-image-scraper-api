@@ -12,6 +12,7 @@ from django.core.files.images import ImageFile
 
 from apps.image.models import ScrapedImage
 
+
 class Command(BaseCommand):
     help = "Generates initial data for the application for demo-ing"
 
@@ -31,7 +32,7 @@ class Command(BaseCommand):
             fake_domain = fake.domain_name(randint(1, 3))
 
             extension = fake_file_path.split(".")[-1]
-            extension = 'JPEG' if extension.lower() == 'jpg' else extension.upper()
+            extension = "JPEG" if extension.lower() == "jpg" else extension.upper()
 
             filename = fake_file_path.split("/")[-1]
 

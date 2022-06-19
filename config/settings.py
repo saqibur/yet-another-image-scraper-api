@@ -28,6 +28,7 @@ THIRD_PARTY_APPS = [
 SELF_APPS = [
     "apps.core",
     "apps.image",
+    "apps.scraper",
     "apps.seed",
     "apps.user",
 ]
@@ -124,3 +125,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+
+# Django APScheduler Settings
+APSCHEDULER_DATETIME_FORMAT = "N j, Y, f:s a"
+APSCHEDULER_RUN_NOW_TIMEOUT = 25  # Seconds
+FETCH_URLS_FROM_SCRAPED_IMAGES_JOB_INTERVAL = "*/5"  # Every 5 minutes
+
+WAIT_PERIOD_BETWEEN_IMAGE_DOWNLOADS = 2  # In seconds

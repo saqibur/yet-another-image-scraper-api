@@ -1,10 +1,7 @@
-from django.db.models import (
-    ImageField,
-    URLField,
-    JSONField
-)
+from django.db.models import ImageField, URLField, JSONField
 
 from apps.core.models import BaseModel
+
 
 class ScrapedImage(BaseModel):
     SCRAPED_IMAGE_LOCATION = "scraped_images"
@@ -26,6 +23,10 @@ class ScrapedImage(BaseModel):
         blank=True,
         null=True,
     )
+
+    @property
+    def is_scraped(self):
+        return True if self.image else False
 
     @property
     def scraped_at(self):
