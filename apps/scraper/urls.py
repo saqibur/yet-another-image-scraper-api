@@ -6,11 +6,11 @@ from django.urls import (
 from apps.core.constants import API_V1
 
 
-app_name = "image"
+app_name = "scraper"
 
 urlpatterns = [
     path(
-        f"{API_V1}/images/",
-        include(("apps.image.api.v1.urls", API_V1), namespace=API_V1),
+        f"{API_V1}/scrapers/",
+        include(("apps.scraper.api.v1.urls", API_V1), namespace=API_V1),
     ),
 ]

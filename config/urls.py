@@ -6,10 +6,10 @@ from django.urls import (
     include,
     path,
 )
-
 from rest_framework import permissions
-from drf_yasg.views import get_schema_view
+
 from drf_yasg import openapi
+from drf_yasg.views import get_schema_view
 
 app_label = "apps.core"
 
@@ -35,7 +35,10 @@ def swagger_api_urlpatterns():
     return swagger_url
 
 
-urlpatterns = [path("", include("apps.image.urls", "image")),] + (
+urlpatterns = [
+    path("", include("apps.image.urls", "image")),
+    path("", include("apps.scraper.urls", "scraper")),
+] + (
     static(settings.MEDIA_URL, document_root=os.path.join(settings.BASE_DIR, "media"))
     + swagger_api_urlpatterns()
 )
