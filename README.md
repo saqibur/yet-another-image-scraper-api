@@ -10,19 +10,20 @@
 A simple API that:
 - Scrapes a link for images
 - Allows "users" to fetch those images with minor downsizing if applicable for
-an image.
+an image. That is, fetch "small" ,"medium", or "large" variants
 
 
 ## Getting Started
-- This project assumes a that the host machine has a `Python 3.9.*` installation.
+- This project assumes that the host machine has a `Python 3.9.*` installation
 - Since this project is meant to be run locally only, we don't have to worry
-about setting up a database.
+about setting up a database
+- Create a virtual environment and install all requirements: `pip install -r requirements/local.txt`
 - Run the entrypoint:
     - For *nix machines: `./entrypoint.sh`
     - For Windows machines: `./entrypoint.bat`
 - Start the API server using: `python manage.py runserver`
 - Start the the job runner using: `python manage.py scraping_jobs`
-- Visit `/docs/swagger` for documentation.
+- Visit `/docs/swagger` for documentation
 
 
 ## Considerations
@@ -34,18 +35,14 @@ DB such as Postgres fairly easily.
 ## Assumptions
 - I've tried to keep things simple so that it's easy to get started and test
 things out without any complicated settings.
-- While there aren't any "Users" yet for the API, I've left to leave in a
+- While there aren't any "Users" yet for the API, I've decided to leave in a
 custom basic user model in case I decide to support users somewhere down the line.
 - When a scraping request for a URL is made, all links on the site are fetched
 and stored in the system. Later, through a scheduled job, the images are fetched
-one at a time. This achieves two goals:
+one at a time. Further, these settings can be modified in the `settings.py` file.
+This achieves two goals:
 1. Prevents us from hitting any rate limits on a site, or spamming it with too
 many requests.
 2. Since fetching all the images is expected to take a while, this allows us to
 complete a request-response cycle without forcing the user to wait for a long
 time.
-
-
-## References
-- [This](https://github.com/saqibur/django-project-structure) structure was used
-to organize files and directories for this project.
