@@ -1,4 +1,3 @@
-from dataclasses import field
 import django_filters.rest_framework as filters
 
 from apps.image.models import ScrapedImage
@@ -10,6 +9,7 @@ class ScrapedImageFilter(filters.FilterSet):
         lookup_expr="icontains",
         label="url",
     )
+    size = filters.CharFilter(field_name="image_variant__size")
 
     class Meta:
         model = ScrapedImage

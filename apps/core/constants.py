@@ -5,6 +5,8 @@ API_V1 = "v1"
 LOCAL_SERVER = "LOCAL"
 DEVELOPMENT_SERVER = "DEVELOPMENT"
 
+SCRAPED_IMAGE_LOCATION = "scraped_images"
+
 
 class ImageFormat(Enum):
     JPEG = "jpeg"
@@ -12,7 +14,6 @@ class ImageFormat(Enum):
     PNG = "png"
     TIFF = "tiff"
     GIF = "gif"
-    SVG = "svg"
     WEBP = "webp"
     MBP = "bmp"
     ICO = "ico"
@@ -30,3 +31,13 @@ class ImageSize(Enum):
     @classmethod
     def values(cls):
         return [member.value for _image_size, member in cls.__members__.items()]
+
+
+class StringifiedImageSize(Enum):
+    SMALL = "small"
+    MEDIUM = "medium"
+    LARGE = "large"
+
+    @classmethod
+    def values(cls):
+        return [member.value for _stringified_image_size, member in cls.__members__.items()]
